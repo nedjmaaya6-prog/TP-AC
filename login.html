@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Plateforme de Don de Sang</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-gradient-main">
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+        <div style="width: 100%; max-width: 28rem;">
+            <!-- Back Button -->
+            <a href="index.html" class="btn" style="background: transparent; color: #374151; margin-bottom: 1.5rem; box-shadow: none; padding: 0.5rem 1rem;">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Retour à l'Accueil
+            </a>
+
+            <!-- Login Card -->
+            <div class="card card-auth">
+                <!-- Card Header -->
+                <div class="card-header" style="padding-bottom: 2rem;">
+                    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                        <div class="step-icon-wrapper">
+                            <div class="step-icon-blur"></div>
+                            <div class="step-icon">
+                                <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 style="font-size: 1.875rem; margin-bottom: 0.5rem;">Bon Retour</h2>
+                    <p style="color: #6b7280;">Connectez-vous pour continuer à sauver des vies</p>
+                </div>
+
+                <!-- Card Content -->
+                <div class="card-content">
+                    <form>
+                        <!-- Role Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Se Connecter en Tant Que</label>
+                            <div class="radio-group">
+                                <div class="radio-option selected">
+                                    <input type="radio" name="role" value="donor" class="radio-input" checked>
+                                    <label class="radio-label">
+                                        <svg class="radio-icon" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                        </svg>
+                                        <span class="radio-text">Donneur</span>
+                                    </label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="role" value="hospital" class="radio-input">
+                                    <label class="radio-label radio-label-blue">
+                                        <svg class="radio-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                        </svg>
+                                        <span class="radio-text">Hôpital</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Adresse Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-input" 
+                                placeholder="votre.email@exemple.com"
+                                required
+                            >
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password" class="form-label">Mot de Passe</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            Se Connecter
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="divider" style="margin: 1.5rem 0;">
+                        <span class="divider-text">Nouveau sur la plateforme?</span>
+                    </div>
+
+                    <!-- Register Link -->
+                    <a href="register.html" class="btn" style="width: 100%; background: white; color: #374151; border: 2px solid #e5e7eb;">
+                        Créer un Nouveau Compte
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle radio button selection
+        document.querySelectorAll('.radio-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.radio-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+            });
+        });
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.querySelector('input[name="role"]:checked').value;
+            if (role === 'hospital') {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'map.html';
+            }
+        });
+    </script>
+</body>
+</html>
